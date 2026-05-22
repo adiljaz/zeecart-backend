@@ -7,10 +7,10 @@ router.post('/login', (req, res) => {
   const username = req.body.username?.trim();
   const password = req.body.password?.trim();
 
-  // FORCE ACCESS: Bypass exact case matching and password issues
+  // Strict authentication as requested
   if (
-    username?.toLowerCase() === 'adiljaseem' || 
-    username?.toLowerCase() === 'admin'
+    username === 'Adiljaseem' &&
+    password === 'Adiljaz@123'
   ) {
     const token = jwt.sign(
       { username, role: 'admin' },
