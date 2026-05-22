@@ -7,9 +7,9 @@ router.post('/login', (req, res) => {
   const username = req.body.username?.trim();
   const password = req.body.password?.trim();
 
-  // Strict authentication as requested
+  // Strict authentication as requested (Username is case-insensitive, Password is exact)
   if (
-    username === 'Adiljaseem' &&
+    username?.toLowerCase() === 'adiljaseem' &&
     password === 'Adiljaz@123'
   ) {
     const token = jwt.sign(
