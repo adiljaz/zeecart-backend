@@ -7,13 +7,10 @@ router.post('/login', (req, res) => {
   const username = req.body.username?.trim();
   const password = req.body.password?.trim();
 
-  // Safely get env variables and trim them to prevent accidental spaces in Render Dashboard
-  const envUsername = process.env.ADMIN_USERNAME?.trim() || 'Adiljaseem';
-  const envPassword = process.env.ADMIN_PASSWORD?.trim() || 'Adiljaz@123';
-
+  // Hardcoded as requested to bypass Render Environment Variable issues
   if (
-    username === envUsername &&
-    password === envPassword
+    username === 'Adiljaseem' &&
+    password === 'Adiljaz@123'
   ) {
     const token = jwt.sign(
       { username, role: 'admin' },
