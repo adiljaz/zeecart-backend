@@ -3,6 +3,10 @@ import jwt from 'jsonwebtoken';
 
 const router = express.Router();
 
+router.get('/version', (req, res) => {
+  res.json({ version: 'v2-hardcoded-auth', message: 'Backend successfully updated' });
+});
+
 router.post('/login', (req, res) => {
   const username = req.body.username?.trim();
   const password = req.body.password?.trim();
